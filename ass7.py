@@ -1,3 +1,10 @@
+##########################################
+# Name: Dvir Asaf
+# ID: 313531113
+# Group: 01
+# Assignment: ass7
+##########################################
+
 import csv
 # Create an empty dictionary
 d = dict()
@@ -33,14 +40,25 @@ def parser(fileName):
 # parser("1.html")
 
 def Crawler():
-    file = input("enter source file:")
-    parser(file)
-    print(d)
+    source_file = input("enter source file:\n")
+    parser(source_file)
+    # print(d)
     with open('results.csv', 'w') as f:
         for key in d.keys():
             f.write("%s" % key)
             for link in d[key]:
                 f.write(",%s" % link)
             f.write("\n")
+
+    file_name = input("enter file name:\n")
+    # print(file_name)
+    # print(d[file_name])
+    list = d[file_name]
+    # list.append(d[file_name])
+    list.sort()
+
+    print(list)
+
+
 
 Crawler()
